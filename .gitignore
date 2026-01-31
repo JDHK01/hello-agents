@@ -1,3 +1,15 @@
+###### mine ###### 
+# temporary
+MYREAD.md
+MYSTUDY.md
+MYCHANGE.md
+test/
+requirements.txt
+# permanent
+CLAUDE.md
+.env
+.env.local
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
