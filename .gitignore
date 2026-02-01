@@ -5,6 +5,7 @@ MYSTUDY.md
 MYCHANGE.md
 test/
 requirements.txt
+model_list
 # permanent
 CLAUDE.md
 .env
