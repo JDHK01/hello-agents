@@ -11,7 +11,7 @@ class Message(BaseModel):
     消息类
     '''
     role: MessageRole
-    content: str
+    content: str|None = None
     timestamp: datetime = Field(default_factory=datetime.now)
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
