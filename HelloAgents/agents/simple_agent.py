@@ -7,11 +7,11 @@ from HelloAgents.core.message import Message
 from HelloAgents.core.config import Config
 from HelloAgents.core.my_llm import MyLLM
 from HelloAgents.core.agent import Agent
+from HelloAgents.tools.builtin.search import search, SEARCH_DESCRIPTION
+from HelloAgents.tools.registry import ToolRegistry
 from typing import Dict, List, Any
 import json
 
-# temp
-from hello_agents import ToolRegistry
 
 
 class SimpleAgent(Agent):
@@ -121,9 +121,11 @@ class SimpleAgent(Agent):
                 return '-1'            
             
 
-    def _execute_tool(self, tool_name: str, args: str):
-        tool = self.tool_registry.get_tool(tool_name)
-        result = tool.run(args)
+    def _execute_tool(self, tool_name: str, args: dict):
+        tool = self.tool_registry.useTool(tool_name)
+        # args 是一个字典，如 {"query": "..."}
+        # 需要解包成关键字参数传递给工具函数
+        result = tool(**args)
         return str(result)
 
     
@@ -168,7 +170,7 @@ class SimpleAgent(Agent):
                 + 'Format: {"type": "final", "final": "your answer"}'
             )
 
-        tools_desc = self.tool_registry.get_tools_description()
+        tools_desc = self.tool_registry.introduceTool()
         if not tools_desc or tools_desc == "No tools available":
             return (
                 base
