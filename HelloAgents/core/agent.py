@@ -23,7 +23,7 @@ class Agent(ABC):
 
     
     @abstractmethod
-    def run(self, input: str, **kwargs) -> str:
+    def run(self, input: str, **kwargs) -> str|None:
         pass
 
 
