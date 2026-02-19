@@ -49,7 +49,7 @@ class ReActAgent(Agent):
         system_prompt: str|None = None,
         # tool
         tool_registry: ToolRegistry|None = None,
-        max_step: int = 10,
+        max_iterations: int = 10,
     ):
         super().__init__(
             llm=llm,
@@ -60,7 +60,7 @@ class ReActAgent(Agent):
         # 新增工具调用
         self.tool_registry: ToolRegistry|None = tool_registry
         # 新增最大循环
-        self.max_step = max_step
+        self.max_iterations = max_iterations
         # reson action特有的轨迹记录
         self.trajectory: List[Dict[str, Any]] = []
 
@@ -70,7 +70,7 @@ class ReActAgent(Agent):
         tool_description = '' # 无意义, 只是为了兼容 tool_registry 为 None 的情况
         if self.tool_registry is not None:
             tool_description = self.tool_registry.introduceTool()
-        for step in range(self.max_step):
+        for step in range(self.max_iterations):
             print('-'*10 + f"step: {step}" + '-'*10)
             # 填充提示词
             prompt = self.prompt_template.format(

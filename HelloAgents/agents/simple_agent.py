@@ -35,7 +35,7 @@ class SimpleAgent(Agent):
         self.tool_registry = tool_registry
 
 
-    def run(self, input:str, max_tool_iteration:int=10, **kwargs):
+    def run(self, input:str, max_iterations:int=10, **kwargs):
         print('='*20 + f"{self.name} processing start: {input}" + '='*20)
 
         # 从 system_prompt 和 self.history 以及 input 整理出完整的输入
@@ -64,13 +64,13 @@ class SimpleAgent(Agent):
             return response_json.get('final', '')
 
         # 正常处理
-        final_answer = self._run_with_tools(messages=messages, input=input, max_tool_iteration=max_tool_iteration)
+        final_answer = self._run_with_tools(messages=messages, input=input, max_iterations=max_iterations)
         self.update_history(Message(role="user", content=input))
         self.update_history(Message(role='assistant', content=final_answer))
         return final_answer
 
 
-    def _run_with_tools(self, input, messages, max_tool_iteration):
+    def _run_with_tools(self, input, messages, max_iterations):
         '''
         模板如下:
         {
@@ -79,7 +79,7 @@ class SimpleAgent(Agent):
         "final": string
         }
         '''
-        for step in range(max_tool_iteration):
+        for step in range(max_iterations):
             # 生成回复, 并解析为json格式
             response = self.llm.invoke(
                 messages=messages
