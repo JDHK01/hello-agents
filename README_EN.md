@@ -1,23 +1,6 @@
-<div align="right">
-  English | <a href="./README.md">中文</a>
-</div>
+introduction: MYCHANGE.md
 
-<div align='center'>
-  <img src="./docs/images/hello-agents.png" alt="alt text" width="100%">
-  <h1>Hello-Agents</h1>
-  <h3>🤖 "Building Agent Systems from Scratch"</h3>
-  <div align="center">
-  <a href="https://trendshift.io/repositories/15520" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/15520" alt="datawhalechina%2Fhello-agents | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/>
-  </a>
-  </div>
-  <p><em>From foundational theory to practical applications, master the design and implementation of agent systems</em></p>
-  <img src="https://img.shields.io/github/stars/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub stars"/>
-  <img src="https://img.shields.io/github/forks/datawhalechina/Hello-Agents?style=flat&logo=github" alt="GitHub forks"/>
-  <img src="https://img.shields.io/badge/language-English-brightgreen?style=flat" alt="Language"/>
-  <a href="https://github.com/datawhalechina/Hello-Agents"><img src="https://img.shields.io/badge/GitHub-Project-blue?style=flat&logo=github" alt="GitHub Project"></a>
-  <a href="https://datawhalechina.github.io/hello-agents/"><img src="https://img.shields.io/badge/Online%20Reading-green?style=flat&logo=gitbook" alt="Online Reading"></a>
-</div>
+code: mycode/
 
 ---
 
